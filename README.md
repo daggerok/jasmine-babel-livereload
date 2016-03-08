@@ -1,4 +1,4 @@
-jasmine-babel-livereload [![build](https://api.travis-ci.org/daggerok/jasmine-babel-livereload.svg?branch=master)](https://api.travis-ci.org/daggerok/jasmine-babel-livereload.svg?branch=master)
+jasmine-babel-livereload [![build](https://api.travis-ci.org/daggerok/jasmine-babel-livereload.svg?branch=master)](https://travis-ci.org/daggerok/jasmine-babel-livereload)
 ========================
 
 jasmine testing babel es6 code with nodemon watching browserify (watchify) and livereload of sources ans tests
