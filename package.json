@@ -8,7 +8,8 @@
   "scripts": {
     "ino": "npm i --no-optional",
     "test": "npm run ino && jasmine --color",
-    "watch": "npm run ino && nodemon ./node_modules/.bin/jasmine --color",
+    "watch":
+      "npm run ino && nodemon -w src -w spec -w index.html ./node_modules/.bin/jasmine --color",
     "build": "npm run ino && browserify src/main.js -d -o bundle.js",
     "start": "npm run ino && watchify src/main.js -v -d -o bundle.js",
     "serve": "npm run ino && (livereload & ws)"
@@ -20,6 +21,11 @@
         {
           "presets": [
             "es2015"
+          ],
+          "plugins": [
+            "transform-regenerator",
+            "transform-runtime",
+            "transform-strict-mode"
           ]
         }
       ]
