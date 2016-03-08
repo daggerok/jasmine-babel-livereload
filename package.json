@@ -6,11 +6,12 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "test": "npm i && jasmine --color",
-    "watch": "npm i && nodemon ./node_modules/.bin/jasmine --color",
-    "build": "npm i && browserify src/main.js -d -o bundle.js",
-    "start": "npm i && watchify src/main.js -v -d -o bundle.js",
-    "serve": "npm i && (livereload & ws)"
+    "ino": "npm i --no-optional",
+    "test": "npm run ino && jasmine --color",
+    "watch": "npm run ino && nodemon ./node_modules/.bin/jasmine --color",
+    "build": "npm run ino && browserify src/main.js -d -o bundle.js",
+    "start": "npm run ino && watchify src/main.js -v -d -o bundle.js",
+    "serve": "npm run ino && (livereload & ws)"
   },
   "browserify": {
     "transform": [
