@@ -1,0 +1,88 @@
+{
+  "name": "jasmine-babel-livereload",
+  "version": "1.0.0",
+  "description": "jasmine testing babel es6 code with nodemon watching browserify (watchify) and livereload of sources ans tests",
+  "author": "Maksim Kostromin",
+  "license": "ISC",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm i && jasmine --color",
+    "watch": "npm i && nodemon ./node_modules/.bin/jasmine --color",
+    "build": "npm i && browserify src/main.js -d -o bundle.js",
+    "start": "npm i && watchify src/main.js -v -d -o bundle.js",
+    "serve": "npm i && (livereload & ws)"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ]
+    ]
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "transform-regenerator",
+      "transform-runtime",
+      "transform-strict-mode"
+    ]
+  },
+  "config": {
+    "bower_directory": "node_modules/bower/bower_components"
+  },
+  "local-web-server": {
+    "directory": ".",
+    "port": 3000,
+    "forbid": [
+      "*.json",
+      "*.ts",
+      "*.md",
+      "*.yml",
+      "*.babel.js",
+      ".gitignore"
+    ],
+    "no-cache": true
+  },
+  "livereload": {
+    "exclusions": [
+      "*.git",
+      "node_modules/**/*.*",
+      ".gitignore",
+      "*.json",
+      "*.md"
+    ]
+  },
+  "dependencies": {
+    "babel-core": "^6.6.5",
+    "babel-plugin-transform-regenerator": "^6.6.5",
+    "babel-plugin-transform-runtime": "^6.6.0",
+    "babel-plugin-transform-strict-mode": "^6.6.5",
+    "babel-preset-es2015": "^6.6.0",
+    "babelify": "^7.2.0",
+    "browserify": "^13.0.0",
+    "jasmine": "^2.4.1",
+    "jquery": "^2.2.1",
+    "livereload": "^0.4.1",
+    "local-web-server": "^1.1.2",
+    "nodemon": "^1.9.1",
+    "watchify": "^3.7.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "jasmine",
+    "babel",
+    "es6",
+    "nodemon",
+    "browserify",
+    "watchify",
+    "livereload",
+    "testing"
+  ]
+}
